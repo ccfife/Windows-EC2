@@ -1,0 +1,3 @@
+{
+  "app": "npx ts-node bin/windows-ec2.ts"
+}
