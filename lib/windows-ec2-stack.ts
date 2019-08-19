@@ -25,7 +25,7 @@ export class WindowsEc2Stack extends cdk.Stack {
       machineImage: new ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_STANDARD),
       minCapacity: 1,
       maxCapacity: 4,
-      desiredCapacity: 2,
+      desiredCapacity: 1,
     });
 
     //get the current region for use in the UserData script
@@ -45,11 +45,11 @@ export class WindowsEc2Stack extends cdk.Stack {
     
     const datatier = new autoscaling.AutoScalingGroup(this, 'SQL', {
       vpc,
-      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T2, ec2.InstanceSize.SMALL),
+      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T2, ec2.InstanceSize.XLARGE),
       machineImage: new ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE),
       minCapacity: 1,
       maxCapacity: 4,
-      desiredCapacity: 2,
+      desiredCapacity: 1,
     });
 
     //add a listener to the load balancer on port 80
