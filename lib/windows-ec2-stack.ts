@@ -22,7 +22,7 @@ export class WindowsEc2Stack extends cdk.Stack {
     const webtier = new autoscaling.AutoScalingGroup(this, 'IIS',{
       vpc,
       instanceType: ec2.InstanceType.of(ec2.InstanceClass.T2, ec2.InstanceSize.MICRO),
-      machineImage: new ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_STANDARD),
+      machineImage: new ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_CORE_BASE),
       minCapacity: 1,
       maxCapacity: 4,
       desiredCapacity: 1,
